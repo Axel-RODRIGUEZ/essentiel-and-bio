@@ -4,7 +4,7 @@
     --text_color_hover : #8D6E63;
 }
 
-.page-container {
+.page_container {
     background-color: var(--background_color);
     min-height: 80vh;
     display: flex;
@@ -13,7 +13,7 @@
     padding: 40px 20px;
 }
 
-.form-card {
+.form_card {
     background-color: var(--background_color);
     width: 100%;
     padding: 40px;
@@ -21,17 +21,17 @@
     box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
 }
 
-.form-title {
+.form_title {
     text-align: center;
     color: #322720;
     margin-bottom: 30px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.form-card input[type="text"],
-.form-card input[type="number"],
-.form-card textarea,
-.form-card select {
+.form_card input[type="text"],
+.form_card input[type="number"],
+.form_card textarea,
+.form_card select {
     width: 100%;
     padding: 12px 15px;
     border: 1px solid #ddd;
@@ -43,26 +43,26 @@
     transition: border-color 0.3s;
 }
 
-.form-card input:focus,
-.form-card textarea:focus {
+.form_card input:focus,
+.form_card textarea:focus {
     border-color: #8D6E63;
     outline: none;
 }
 
-.form-group {
+.form_group {
     margin-bottom: 20px;
 }
 
-.form-split {
+.form_split {
     display: flex;
     gap: 20px; 
     margin-bottom: 30px;
 }
 
-.form-half {
+.form_half {
     flex: 1; 
 }
-.upload-zone input[type="file"] {
+.upload_zone input[type="file"] {
     padding: 20px;
     border: 2px dashed #ccc;
     background-color: #fafafa;
@@ -70,8 +70,7 @@
     cursor: pointer;
 }
 
-/* --- 5. Le Bouton --- */
-.btn-submit {
+.btn_submit {
     width: 100%;
     padding: 15px;
     background-color: #7CB342; 
@@ -84,12 +83,12 @@
     transition: background-color 0.3s;
 }
 
-.btn-submit:hover {
+.btn_submit:hover {
     background-color: #689F38; 
 }
 
 
-.form-card label {
+.form_card label {
     font-weight: 500;
     color: #555;
     font-size: 0.9rem;

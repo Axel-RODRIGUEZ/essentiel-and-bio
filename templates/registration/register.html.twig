@@ -6,29 +6,29 @@
 {% block title %}Register{% endblock %}
 
 {% block main %}
-    <div class="auth-container">
-        <div class="auth-card">
+    <div class="auth_container">
+        <div class="auth_card">
             <h1>Créer un compte</h1>
 
             {{ form_errors(registrationForm) }}
 
-            {{ form_start(registrationForm, {'attr': {'class': 'auth-form'}}) }}
-                <div class="form-group">
+            {{ form_start(registrationForm, {'attr': {'class': 'auth_form'}}) }}
+                <div class="form_group">
                     {{ form_label(registrationForm.username) }}
                     {{ form_widget(registrationForm.username) }}
                 </div>
 
-                <div class="form-group">
+                <div class="form_group">
                     {{ form_label(registrationForm.plainPassword) }}
                     {{ form_widget(registrationForm.plainPassword) }}
                 </div>
 
-                <div class="form-checkbox">
+                <div class="form_checkbox">
                     {{ form_widget(registrationForm.agreeTerms) }}
                     {{ form_label(registrationForm.agreeTerms, 'Accepter les conditions') }}
                 </div>
 
-                <button type="submit" class="btn-submit">Créer</button>
+                <button type="submit" class="btn_submit">Créer</button>
             {{ form_end(registrationForm) }}
         </div>
     </div>

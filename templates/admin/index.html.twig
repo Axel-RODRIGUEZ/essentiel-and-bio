@@ -11,23 +11,24 @@
     <a href="{{ path('new_product') }}" class="btn_primary">Créer un produit</a>
 </div>
 
-<div class="product-list-container">
+<div class="product_list_container">
     {% for product in products %}
-        <div class="product-card">
+        <div class="product_card">
             
-            <div class="product-info">
-                <span class="product-category">{{ product.category.name }}</span>
-                <h3 class="product-name">{{ product.name }}</h3>
-                <span class="product-price">{{ product.price }} €</span>
+            <div class="product_info">
+                <span class="product_category">{{ product.category.name }}</span>
+                <h3 class="product_name">{{ product.name }}</h3>
+                <span class="product_price">{{ product.price }} €</span>
             </div>
 
-            <div class="product-actions">
+            <div class="product_actions">
+                <a href="{{ path('update', {id:product.id}) }}" class="btn_update"> Modifier</a>
                 {% if product.favorite == false %}
-                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn-fav btn-fav-add">
+                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn_fav btn_fav_add">
                         ♡ Ajouter aux favoris
                     </a>
                 {% else %}
-                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn-fav btn-fav-remove">
+                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn_fav btn_fav_remove">
                         ♥ Retirer des favoris
                     </a>
                 {% endif %}

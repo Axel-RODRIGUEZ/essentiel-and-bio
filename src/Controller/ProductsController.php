@@ -61,11 +61,30 @@ class ProductsController extends AbstractController
     }
 
     #[Route('/product/toggle-favorite/{id}', name: 'app_product_toggle_favorite')]
-    public function toggleFavorite(Product $product, EntityManagerInterface $entityManager): Response
+    public function toggleFavorite(Product $product, EntityManagerInterface $entity_manager): Response
     {
         $product->setFavorite(!$product->getFavorite());
-        $entityManager->flush();
+        $entity_manager->flush();
         $this->addFlash('success', 'Le statut favori a bien été modifié !');
         return $this->redirectToRoute('admin');
+    }
+
+    #[Route('/product/update/{id}', name: 'update')]
+    public function update(Product $product, Request $request, EntityManagerInterface $entity_manager): Response
+    {
+        $form = $this->createForm(ProductType::class, $product);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+        $entity_manager->flush();
+
+        $this->addFlash('success', 'Le produit a bien été modifié !');
+        return $this->redirectToRoute('admin'); 
+        }
+
+        return $this->render('products/update.html.twig', [
+            'product' => $product,
+            'form' => $form->createView(),
+        ]);
     }
 }

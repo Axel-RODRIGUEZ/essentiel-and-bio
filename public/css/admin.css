@@ -34,13 +34,13 @@ body {
     transform: scale(1.05);
 }
 
-.product-list-container {
+.product_list_container {
     max-width: 900px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.product-card {
+.product_card {
     background: white;
     border-radius: 15px; 
     padding: 20px 30px;
@@ -52,29 +52,29 @@ body {
     transition: transform 0.2s;
 }
 
-.product-card:hover {
+.product_card:hover {
     transform: translateY(-3px); 
 }
 
-.product-category {
+.product_category {
     font-size: 0.85rem;
     color: #888;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.product-name {
+.product_name {
     margin: 5px 0;
     color: #333;
     font-size: 1.2rem;
 }
 
-.product-price {
+.product_price {
     font-weight: bold;
     color: #6B8E23; 
 }
 
-.btn-fav {
+.btn_fav {
     padding: 10px 20px;
     border-radius: 30px; 
     text-decoration: none;
@@ -84,17 +84,34 @@ body {
     border: 2px solid #6B8E23;
 }
 
-.btn-fav-add {
+.btn_fav_add {
     background-color: transparent;
     color: #6B8E23;
 }
 
-.btn-fav-remove {
+.btn_fav_remove {
     background-color: #6B8E23;
     color: white;
 }
 
-.btn-fav:hover {
+.btn_fav:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+.btn_update{
+    padding: 10px 20px;
+    border-radius: 30px; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s;
+    border: 2px solid #6B8E23; 
+    background-color: #6B8E23;  
+    color:white;
+}
+
+.btn_update:hover{
     opacity: 0.9;
     transform: scale(1.05);
 }

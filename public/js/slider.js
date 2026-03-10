@@ -1,46 +1,46 @@
 
-document.addEventListener('DOMContentLoaded', () => {
+document.add_event_listener('DOMContentLoaded', () => {
     let container = document.querySelector('.favorite_slider');
-    let scrollInterval;
-    let firstItem = container.querySelector('.favorite_object');
-    let favoriteObjects = container.querySelectorAll('.favorite_object:not(.clone)');
-    let favoritesCount = favoriteObjects.length;
-    let itemWidth = firstItem.getBoundingClientRect().width;
-    let style = window.getComputedStyle(firstItem);
-    let marginLeft = parseFloat(style.marginLeft);
-    let marginRight = parseFloat(style.marginRight);
-    let totalItemWidth = itemWidth + marginLeft + marginRight;
-    let stopPoint = totalItemWidth * favoritesCount;
+    let scroll_interval;
+    let first_item = container.querySelector('.favorite_object');
+    let favorite_objects = container.querySelectorAll('.favorite_object:not(.clone)');
+    let favorites_count = favorite_objects.length;
+    let item_width = first_item.getBoundingClientRect().width;
+    let style = window.getComputedStyle(first_item);
+    let margin_left = parseFloat(style.margin_left);
+    let margin_right = parseFloat(style.margin_right);
+    let totalitem_width = item_width + margin_left + margin_right;
+    let stop_point = totalitem_width * favorites_count;
     
     
-    function startAutoScroll() {
-    scrollInterval = setInterval(function() {
-        container.scrollLeft += 1;
+    function start_auto_scroll() {
+    scroll_interval = set_interval(function() {
+        container.scroll_left += 1;
 
-        if (container.scrollLeft >= stopPoint) {
-            container.scrollLeft = 1; 
+        if (container.scroll_left >= stop_point) {
+            container.scroll_left = 1; 
         }
     }, 20);
 }
-    if (container && firstItem) {
-        startAutoScroll();
+    if (container && first_item) {
+        start_auto_scroll();
 
-        container.addEventListener('mouseenter', () => {
-            clearInterval(scrollInterval); 
+        container.add_event_listener('mouseenter', () => {
+            clearInterval(scroll_interval); 
         });
 
-        container.addEventListener('mouseleave', () => {
-            startAutoScroll();
+        container.add_event_listener('mouseleave', () => {
+            start_auto_scroll();
         });
     }
-    container.addEventListener('scroll', () => {
-    if (container.scrollLeft >= stopPoint) {
-        container.scrollLeft = 1;
+    container.add_event_listener('scroll', () => {
+    if (container.scroll_left >= stop_point) {
+        container.scroll_left = 1;
     } 
 
-    else if (container.scrollLeft <= 0) {
-        container.scrollLeft = stopPoint - 1; 
+    else if (container.scroll_left <= 0) {
+        container.scroll_left = stop_point - 1; 
     }
 })
-    container.scrollLeft = totalItemWidth;
+    container.scroll_left = totalitem_width;
 });

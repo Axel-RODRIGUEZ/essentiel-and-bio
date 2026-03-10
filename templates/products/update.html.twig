@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/update_product.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div class="product_form_container">
+    <h1>Modifier le produit</h1>
+
+    {{ form_start(form, {'attr': {'class': 'custom_product_form'}}) }}
+
+        <div class="form_group">
+            {{ form_label(form.name, 'Name') }}
+            {{ form_widget(form.name, {'attr': {'placeholder': 'Nom du produit'}}) }}
+        </div>
+
+        <div class="form_group">
+            {{ form_label(form.description, 'Description') }}
+            {{ form_widget(form.description, {'attr': {'placeholder': 'Description détaillée...'}}) }}
+        </div>
+
+        <div class="form_group">
+            {{ form_label(form.price, 'Price') }}
+            {{ form_widget(form.price, {'attr': {'placeholder': 'Prix en €'}}) }}
+        </div>
+
+        <div class="form_row_split">
+            <div class="form_group file_group">
+                {{ form_label(form.image, 'Image du produit (JPG, PNG)') }}
+                <div class="file_drop_area">
+                    {{ form_widget(form.image) }}
+                </div>
+            </div>
+
+            <div class="form_group category_group">
+                {{ form_label(form.category, 'Category') }}
+                {{ form_widget(form.category) }}
+            </div>
+        </div>
+
+        <button type="submit" class="btn_submit_large">Modifier le produit</button>
+
+    {{ form_end(form) }}
+</div>
+{% endblock %}

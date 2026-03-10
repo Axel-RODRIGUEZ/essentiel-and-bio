@@ -10,9 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const filterValue = button.getAttribute('data-filter');
 
             cards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
+                const card_category = card.getAttribute('data-category');
 
-                if (filterValue === 'all' || filterValue.includes(cardCategory)) {
+                if (filterValue === 'all' || filterValue.includes(card_category)) {
                     card.classList.remove('hidden');
                 } else {
                     card.classList.add('hidden');

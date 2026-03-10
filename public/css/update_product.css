@@ -1,0 +1,102 @@
+.product_form_container {
+    max-width: 900px; 
+    margin: 3rem auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.product_form_container h1 {
+    text-align: center;
+    color: #3e332a; 
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+}
+
+.custom_product_form .form_group {
+    margin-bottom: 1.5rem;
+}
+
+.custom_product_form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.custom_product_form input[type="text"],
+.custom_product_form input[type="number"],
+.custom_product_form textarea,
+.custom_product_form select {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #e0dfd5;
+    border-radius: 12px;
+    background-color: white;
+    font-size: 1rem;
+    color: #333;
+    box-sizing: border-box; 
+    font-family: inherit;
+    outline: none;
+}
+
+.custom_product_form input:focus,
+.custom_product_form textarea:focus,
+.custom_product_form select:focus {
+    border-color: #82b045; 
+}
+
+.custom_product_form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form_row_split {
+    display: flex;
+    gap: 3rem; 
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.form_row_split .file_group,
+.form_row_split .category_group {
+    flex: 1; 
+}
+
+.file_drop_area {
+    border: 2px dashed #b5b5b5;
+    padding: 0.8rem;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+}
+
+.file_drop_area input[type="file"] {
+    border: none;
+    padding: 0;
+    width: auto;
+    background: transparent;
+}
+
+.btn_submit_large {
+    width: 100%;
+    background-color: #7FB041;
+    color: white;
+    padding: 1.2rem;
+    border: none;
+    border-radius: 50px; 
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s;
+    margin-top: 1rem;
+}
+
+.btn_submit_large:hover {
+    background-color: #6a9634;
+}
+
+.btn_submit_large:active {
+    transform: scale(0.99); 
+}

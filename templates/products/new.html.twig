@@ -6,37 +6,37 @@
 {% endblock %}
 
 {% block main %}
-<div class="page-container">
+<div class="page_container">
     
-    <div class="form-card">
-        <h1 class="form-title">Créer un nouveau produit</h1>
+    <div class="form_card">
+        <h1 class="form_title">Créer un nouveau produit</h1>
 
         {{ form_start(formProduct) }}
             
-            <div class="form-group">
+            <div class="form_group">
                 {{ form_row(formProduct.name, {'attr': {'placeholder': 'Nom du produit'}}) }}
             </div>
 
-            <div class="form-group">
+            <div class="form_group">
                 {{ form_row(formProduct.description, {'attr': {'placeholder': 'Description détaillée...'}}) }}
             </div>
 
-            <div class="form-group">
+            <div class="form_group">
                 {{ form_row(formProduct.price, {'attr': {'placeholder': 'Prix en €'}}) }}
             </div>
 
-            <div class="form-split">
+            <div class="form_split">
                 
-                <div class="form-half upload-zone">
+                <div class="form_half upload_zone">
                     {{ form_row(formProduct.image, {'label': 'Image du produit (JPG, PNG)'}) }}
                 </div>
 
-                <div class="form-half">
+                <div class="form_half">
                     {{ form_row(formProduct.category) }}
                 </div>
             </div>
 
-            <div class="form-actions">
+            <div class="form_actions">
                 <button type="submit" class="btn-submit">Créer le produit</button>
             </div>
 

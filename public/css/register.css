@@ -1,4 +1,4 @@
-.auth-container {
+.auth_container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,7 +6,7 @@
     background-color: #f4f1e6; 
 }
 
-.auth-card {
+.auth_card {
     background: white;
     padding: 3rem;
     border-radius: 30px; 
@@ -16,24 +16,24 @@
     text-align: center;
 }
 
-.auth-card h1 {
+.auth_card h1 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     color: #333;
 }
 
-.form-group {
+.form_group {
     margin-bottom: 1rem;
     text-align: center;
 }
 
-.form-group label {
+.form_group label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
-.form-group input {
+.form_group input {
     width: 80%;
     padding: 0.5rem;
     border: 1px solid #ccc;
@@ -41,7 +41,7 @@
     border-radius: 5px;
 }
 
-.btn-submit {
+.btn_submit {
     background-color: #82b045; 
     color: white;
     padding: 0.8rem 2rem;
@@ -52,6 +52,6 @@
     transition: background 0.3s;
 }
 
-.btn-submit:hover {
+.btn_submit:hover {
     background-color: #6d943a;
 }
