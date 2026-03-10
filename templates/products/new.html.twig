@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/new_product.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div class="page-container">
+    
+    <div class="form-card">
+        <h1 class="form-title">Créer un nouveau produit</h1>
+
+        {{ form_start(formProduct) }}
+            
+            <div class="form-group">
+                {{ form_row(formProduct.name, {'attr': {'placeholder': 'Nom du produit'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_row(formProduct.description, {'attr': {'placeholder': 'Description détaillée...'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_row(formProduct.price, {'attr': {'placeholder': 'Prix en €'}}) }}
+            </div>
+
+            <div class="form-split">
+                
+                <div class="form-half upload-zone">
+                    {{ form_row(formProduct.image, {'label': 'Image du produit (JPG, PNG)'}) }}
+                </div>
+
+                <div class="form-half">
+                    {{ form_row(formProduct.category) }}
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">Créer le produit</button>
+            </div>
+
+        {{ form_end(formProduct) }}
+    </div>
+
+</div>
+{% endblock %}

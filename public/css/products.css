@@ -1,0 +1,95 @@
+:root{
+    --background_color: #F2F1E4 ;
+    --text_color : #322720;
+    --text_color_hover : #8D6E63;
+}
+main{
+    color: var(--text_color);
+}
+
+.products_type_button{
+    display: flex;
+    justify-content: center;
+}
+
+.products_type_button button{
+    width: 150px;
+    padding: 0.2%;
+    border: None;
+    margin: 0 1%;
+    background-color: #82b045;
+    border-radius: 20px;
+}
+
+.products_type_button button:hover{
+    background-color: #5e7f33 ;
+}
+
+.products_type_button button.active{
+    background-color: #5e7f33;
+}
+
+.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    margin: 1% 0;
+    margin-left: 4%;
+}
+.products_object{
+    width: 18%;
+    min-width: 263px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s ease; 
+    margin: 1% 1%;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.products_object.hidden{
+    display: none;
+}
+
+.img_object img{
+    width:100%;
+    height:auto;
+    object-fit: cover;
+    display:block;
+}
+
+.text_object p{
+    margin: 5px;
+    font-weight: bold;
+    color: var(--text_color);
+    padding-left: 5%;
+    font-size: larger;
+}
+
+.btn_products{
+    display:flex;
+    justify-content: flex-end;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+.products_object:hover{
+    transform: scale(1.1);
+}
+
+.btn_products input{
+    background-color: #7FB041;
+    border: solid 0.1px #7FB041;
+    border-radius: 10px;
+    padding: 3%;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
+    color:white;
+    cursor: pointer;
+}
+
+.btn_products input:hover{
+    border-color: var(--text_color);
+    background-color: var(--text_color);
+    color:antiquewhite;
+}

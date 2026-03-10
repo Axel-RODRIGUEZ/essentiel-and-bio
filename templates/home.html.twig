@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+    {{ parent() }}
+        <link href="{{ asset('css/home.css')}}" rel="stylesheet">
+    {% endblock %}
+
+    {% block javascripts %}
+        {{parent()}}
+        <script src="{{ asset('js/slider.js')}}" defer></script>
+    {% endblock %}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% block main %}
+        <section class="discover_section">
+            <img src="{{ asset('img/home/index_background.png') }}" class="discover_bg_img" alt="Bannière bio">
+            
+            <div class="discover_content">
+                <h1>Le bio à portée de main.</h1>
+                <a href="{{ path('products') }}">Découvrir</a>
+            </div>
+        </section>
+
+        <section class="shadow_btn_section">
+            <div class="shadow_box_div">
+                <div class="img_wrapper">
+                    <img src="{{ asset('img/home/logo_leave.png') }}" class="shadow_btn_img"  alt="Bannière bio">
+                </div>
+                <p>Produits Frais & Locaux</p>
+            </div>
+
+            <div class="shadow_box_div">
+                <div class="img_wrapper">
+                    <img src="{{ asset('img/home/logo_cart.png') }}" class="shadow_btn_img"  alt="Bannière bio">
+                </div>
+                <p>Livraison Rapide & Ecologique</p>
+            </div>
+            
+            <div class="shadow_box_div">
+                <div class="img_wrapper">
+                    <img src="{{ asset('img/home/logo_heart.png') }}" class="shadow_btn_img" alt="Bannière bio">
+                </div>
+                <p>Engagés pour la planète</p>
+            </div>
+        </section>
+
+        <section class="favorite_section">
+            <h2>Nos coup de coeur</h2>
+                <div class="favorite_parent">
+                    {% set favorite_products = products|filter(p => p.favorite) %}
+
+                    <div class="favorite_slider {{ favorite_products|length <= 5 ? 'centered' : '' }}">
+                        {% for product in products %}
+                            {% if product.favorite%}
+
+                                <div class="favorite_object">
+
+                                    <div class="img_object">
+                                        <img src="{{ asset('img/' ~ product.image) }}" alt="{{ product.name }}">
+                                    </div>
+
+                                    <div class="text_object">
+                                        <p>{{ product.name }}</p>
+                                        <p>{{ product.price }} €</p>
+                                        <div class="btn_favorite">
+                                            <input type='submit' value="Ajouter au panier"/>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                
+                                {% endif %}
+                                
+                        {% endfor %}
+                        {% for product in favorite_products|slice(0, 5) %}
+                                <div class="favorite_object clone">
+
+                                <div class="img_object">
+                                    <img src="{{ asset('img/' ~ product.image) }}" alt="{{ product.name }}">
+                                </div>
+
+                                <div class="text_object">
+                                    <p>{{ product.name }}</p>
+                                    <p>{{ product.price }} €</p>
+                                    <div class="btn_favorite">
+                                        <input type='submit' value="Ajouter au panier"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+        </section>
+
+    {% endblock %}

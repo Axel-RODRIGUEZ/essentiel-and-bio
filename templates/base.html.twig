@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Essentiel & Bio</title>
+        <link rel="icon" href="{{ asset('img/base/logo.png')}}">
+        {% block stylesheets %}
+            <link href="{{ asset('css/base.css')}}" rel="stylesheet">
+        {% endblock %}
+
+        {% block javascripts %}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+        <header>
+                <section class="header_div_parent">
+                    <a href="{{ path('index')}}" class="logo_title_link"><img src='{{ asset('img/base/logo_title.png')}}' alt='Logo enseigne' class="logo_title"/></a>
+                
+                    <a href="{{ path('sales')}}" class="main_nav">Promotions</a>
+                    <a href="{{ path('commitments')}}" class="main_nav">Nos engagements</a>
+                    <a href="{{ path('recipes')}}" class="main_nav">Recettes</a>
+                    <a href="{{ path('contact')}}" class="main_nav">Nous contacter</a>
+                
+                    <a href="#"><img src=" {{asset('img/base/glass.png')}}" alt='' class="left_nav_img"/></a>
+                    <a href="#"><img src=" {{asset('img/base/cart.png')}}" alt='' class="left_nav_img"/></a>
+
+                    <div class="menu_deroulant">
+
+                        {% if app.user %}
+                            <div class="user_avatar menu_principal">
+                                {{ app.user.userIdentifier|first|upper }}
+                            </div>
+                        {% else %}
+                            <div class="menu_principal">
+                                <img src="{{ asset('img/base/account.png') }}" alt="Compte" class="left_nav_img"/>
+                            </div>
+                        {% endif %}
+
+                    <div class="enfant_menu_deroulant">
+                        
+                        {% if app.user %}
+                            <p>Bonjour {{ app.user.userIdentifier }}</p>
+                            <a href="{{ logout_path() }}">Se déconnecter</a>
+                            
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <a href="{{ path('admin') }}">Panel admin</a>
+                            {% endif %}
+                            
+                        {% else %}
+                            <a href="{{ path('login') }}">Se connecter</a>
+                            <a href="{{ path('register') }}">Créer un compte</a>
+                        {% endif %}
+                        
+                    </div>
+
+                </div>
+                </section>
+        </header>
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+        <footer>
+            <section class="footer_div_parent">
+                <a href="{{ path('index')}}" class="logo_title_link"><img src='{{ asset('img/base/logo_title.png')}}' alt='Logo enseigne' class="logo_title"/></a>
+            
+                <a href="{{ path('infos')}}" class="main_nav">Informations</a>
+                <a href="{{ path('commitments')}}" class="main_nav">Confidentialité</a>
+                <a href="{{ path('recruitment')}}" class="main_nav">Recrutement</a>
+            </section>
+        </footer>
+    </body>
+</html>

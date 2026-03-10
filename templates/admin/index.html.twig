@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+        {{ parent() }}
+            <link href="{{ asset('css/admin.css')}}" rel="stylesheet">
+    {% endblock %}
+        
+    {% block main %}
+
+<div class="admin_header">
+    <h1>Gestion des produits</h1>
+    <a href="{{ path('new_product') }}" class="btn_primary">Créer un produit</a>
+</div>
+
+<div class="product-list-container">
+    {% for product in products %}
+        <div class="product-card">
+            
+            <div class="product-info">
+                <span class="product-category">{{ product.category.name }}</span>
+                <h3 class="product-name">{{ product.name }}</h3>
+                <span class="product-price">{{ product.price }} €</span>
+            </div>
+
+            <div class="product-actions">
+                {% if product.favorite == false %}
+                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn-fav btn-fav-add">
+                        ♡ Ajouter aux favoris
+                    </a>
+                {% else %}
+                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn-fav btn-fav-remove">
+                        ♥ Retirer des favoris
+                    </a>
+                {% endif %}
+            </div>
+
+        </div>
+    {% endfor %}
+</div>
+
+    {% endblock %}

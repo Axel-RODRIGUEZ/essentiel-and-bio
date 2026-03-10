@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+    {% block stylesheets %}
+        {{ parent() }}
+            <link href="{{ asset('css/products.css')}}" rel="stylesheet">
+    {% endblock %}
+    {% block javascripts %}
+        {{parent()}}
+        <script src="{{ asset('js/products_filter.js')}}" defer></script>
+    {% endblock %}
+    {% block main %}
+        <div class="products_type_button">
+            <button class="filter_btn" type="button" data-filter="all">Tous</button>
+            <button class="filter_btn" type="button" data-filter="Fruits Légumes">Fruits et légumes</button>
+            <button class="filter_btn"  type="button" data-filter="Frais">Frais</button>
+            <button class="filter_btn"  type="button" data-filter="Hygiène">Hygiène</button>
+            <button class="filter_btn"  type="button" data-filter="Sanitaire">Sanitaire</button>
+            <button class="filter_btn"  type="button" data-filter="Animaux">Animaux</button>
+            <button class="filter_btn"  type="button" data-filter="Laitier">Laitier</button>
+            <button class="filter_btn"  type="button" data-filter="Viande et poisson">Viande et poisson</button>
+            <button class="filter_btn"  type="button" data-filter="Epicerie salée">Epicerie salée</button>
+            <button class="filter_btn"  type="button" data-filter="Epicerie sucrée">Epicerie sucrée</button>
+            <button class="filter_btn"  type="button" data-filter="Boissons">Boissons</button>
+            <button class="filter_btn"  type="button" data-filter="Surgelé">Surgelé</button>
+        </div>
+
+        <div class="products">
+            {% for product in products %}
+
+                <div class="products_object" data-category="{{ product.category.name }}">
+
+                    <div class="img_object">
+                        <img src="{{ asset('img/' ~ product.image) }}" alt="{{ product.name }}">
+                    </div>
+
+                    <div class="text_object">
+                        <p>{{ product.name }}</p>
+                        <p>{{ product.price }} €</p>
+                        <div class="btn_products">
+                            <input type='submit' value="Ajouter au panier"/>
+                        </div>
+                    </div>
+
+                </div>
+
+                    
+                    
+            {% endfor %}
+
+    {% endblock %}
