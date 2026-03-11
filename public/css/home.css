@@ -45,21 +45,22 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.discover_content a{
-    border: solid, 1px, #7FB041;
+.btn_product{
+    display:inline-block;
+    border: solid 1px #7FB041;
     background-color: #7FB041;
     padding: 3%;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
     text-decoration: none;
+    transition: all 0.3s;
     color: white;
     font-size: larger;
 }
 
-.discover_content a:hover{
-    border-color: var(--text_color);
-    background-color: var(--text_color);
-    color:antiquewhite;
+.btn_product:hover{
+    opacity: 0.9;
+    transform: scale(1.05);
 }
 
 .shadow_btn_section{
@@ -181,10 +182,10 @@
     box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
     color:white;
     cursor: pointer;
+    transition: all 0.3s;
 }
 
 .btn_favorite input:hover{
-    border-color: var(--text_color);
-    background-color: var(--text_color);
-    color:antiquewhite;
+    opacity: 0.9;
+    transform: scale(1.05);
 }

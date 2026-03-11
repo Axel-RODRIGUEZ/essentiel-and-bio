@@ -22,13 +22,17 @@
             </div>
 
             <div class="product_actions">
-                <a href="{{ path('update', {id:product.id}) }}" class="btn_update"> Modifier</a>
+                <form method="post" class="form_delete" action="{{ path('delete', {id:product.id}) }}" onsubmit="return confirm('Es-tu sûr de vouloir supprimer ce produit ?');">
+                    <input type="submit" value="Supprimer" class="btn_delete btn"/>
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
+                </form>
+                <a href="{{ path('update', {id:product.id}) }}" class="btn_update btn"> Modifier</a>
                 {% if product.favorite == false %}
-                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn_fav btn_fav_add">
+                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn_fav btn_fav_add btn">
                         ♡ Ajouter aux favoris
                     </a>
                 {% else %}
-                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn_fav btn_fav_remove">
+                    <a href="{{ path('app_product_toggle_favorite', {id: product.id}) }}" class="btn_fav btn_fav_remove btn">
                         ♥ Retirer des favoris
                     </a>
                 {% endif %}

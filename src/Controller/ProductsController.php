@@ -60,7 +60,7 @@ class ProductsController extends AbstractController
     ]);
     }
 
-    #[Route('/product/toggle-favorite/{id}', name: 'app_product_toggle_favorite')]
+    #[Route('/produit/toggle-favorite/{id}', name: 'app_product_toggle_favorite')]
     public function toggleFavorite(Product $product, EntityManagerInterface $entity_manager): Response
     {
         $product->setFavorite(!$product->getFavorite());
@@ -69,7 +69,7 @@ class ProductsController extends AbstractController
         return $this->redirectToRoute('admin');
     }
 
-    #[Route('/product/update/{id}', name: 'update')]
+    #[Route('/produit/éditer/{id}', name: 'update')]
     public function update(Product $product, Request $request, EntityManagerInterface $entity_manager): Response
     {
         $form = $this->createForm(ProductType::class, $product);
@@ -86,5 +86,15 @@ class ProductsController extends AbstractController
             'product' => $product,
             'form' => $form->createView(),
         ]);
+    }
+
+    #[Route('produit/supprimer/{id}', name: 'delete', methods: ['POST'])]
+    public function delete(Product $product, Request $request, EntityManagerInterface $em): Response
+    {
+        if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->request->get('_token'))){
+        $em->remove($product);
+        $em->flush();
+    }
+    return $this->redirectToRoute('admin');
     }
 }

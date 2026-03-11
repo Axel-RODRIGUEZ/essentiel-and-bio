@@ -1,46 +1,54 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.favorite_slider');
+    if (!container) return;
 
-document.add_event_listener('DOMContentLoaded', () => {
-    let container = document.querySelector('.favorite_slider');
-    let scroll_interval;
-    let first_item = container.querySelector('.favorite_object');
-    let favorite_objects = container.querySelectorAll('.favorite_object:not(.clone)');
-    let favorites_count = favorite_objects.length;
-    let item_width = first_item.getBoundingClientRect().width;
-    let style = window.getComputedStyle(first_item);
-    let margin_left = parseFloat(style.margin_left);
-    let margin_right = parseFloat(style.margin_right);
-    let totalitem_width = item_width + margin_left + margin_right;
-    let stop_point = totalitem_width * favorites_count;
-    
-    
-    function start_auto_scroll() {
-    scroll_interval = set_interval(function() {
-        container.scroll_left += 1;
+    const originals = Array.from(container.querySelectorAll('.favorite_object:not(.clone)'));
+    if (originals.length === 0) return;
 
-        if (container.scroll_left >= stop_point) {
-            container.scroll_left = 1; 
+    const firstItem = originals[0];
+    const style = window.getComputedStyle(firstItem);
+    const itemWidth = firstItem.getBoundingClientRect().width + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+    
+    const stopPoint = itemWidth * originals.length;
+    const neededWidth = stopPoint + container.clientWidth;
+    let currentTotalWidth = stopPoint;
+
+    while (currentTotalWidth < neededWidth + itemWidth) {
+        originals.forEach(item => {
+            const clone = item.cloneNode(true); 
+            clone.classList.add('clone'); 
+            container.appendChild(clone);
+            currentTotalWidth += itemWidth;
+        });
+    }
+
+    let scrollInterval;
+
+    function startAutoScroll() {
+        scrollInterval = setInterval(() => {
+            container.scrollLeft += 1;
+
+            if (container.scrollLeft >= stopPoint) {
+                container.scrollLeft -= stopPoint; 
+            }
+        }, 20);
+    }
+
+    startAutoScroll();
+
+    container.addEventListener('mouseenter', () => {
+        clearInterval(scrollInterval);
+    });
+
+    container.addEventListener('mouseleave', () => {
+        startAutoScroll();
+    });
+
+    container.addEventListener('scroll', () => {
+        if (container.scrollLeft >= stopPoint) {
+            container.scrollLeft -= stopPoint;
+        } else if (container.scrollLeft <= 0) {
+            container.scrollLeft += stopPoint; 
         }
-    }, 20);
-}
-    if (container && first_item) {
-        start_auto_scroll();
-
-        container.add_event_listener('mouseenter', () => {
-            clearInterval(scroll_interval); 
-        });
-
-        container.add_event_listener('mouseleave', () => {
-            start_auto_scroll();
-        });
-    }
-    container.add_event_listener('scroll', () => {
-    if (container.scroll_left >= stop_point) {
-        container.scroll_left = 1;
-    } 
-
-    else if (container.scroll_left <= 0) {
-        container.scroll_left = stop_point - 1; 
-    }
-})
-    container.scroll_left = totalitem_width;
+    });
 });
